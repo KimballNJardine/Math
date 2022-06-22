@@ -1,0 +1,162 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5224,        154]
+NotebookOptionsPosition[      4861,        140]
+NotebookOutlinePosition[      5270,        156]
+CellTagsIndexPosition[      5227,        153]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"TrapezoidApproximation", "[", 
+   RowBox[{"f_", ",", " ", "Start_", ",", " ", "End_", ",", " ", "n_"}], 
+   "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"End", "-", "Start"}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"2", "n"}], ")"}]}], ")"}], "*", "\[IndentingNewLine]", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"f", "[", "Start", "]"}], " ", "+", " ", 
+     RowBox[{"f", "[", "End", "]"}], " ", "+", " ", 
+     RowBox[{"2", " ", "*", 
+      RowBox[{"Sum", "[", 
+       RowBox[{
+        RowBox[{"f", "[", "i", "]"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", " ", 
+          RowBox[{"Start", "+", 
+           RowBox[{"1", "/", "n"}]}], ",", " ", 
+          RowBox[{"End", "-", 
+           RowBox[{"1", "/", "n"}]}], " ", ",", " ", 
+          RowBox[{"1", "/", "n"}]}], "}"}]}], "]"}]}]}], 
+    ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MidpointApproximation", "[", 
+   RowBox[{"f_", ",", " ", "Start_", ",", " ", "End_", ",", " ", "n_"}], 
+   "]"}], " ", ":=", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"End", "-", "Start"}], ")"}], "/", "n"}], ")"}], "*", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(", 
+    RowBox[{"Sum", "[", 
+     RowBox[{
+      RowBox[{"f", "[", "i", "]"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", " ", 
+        RowBox[{"Start", "+", 
+         RowBox[{"1", "/", 
+          RowBox[{"(", 
+           RowBox[{"2", "n"}], ")"}]}]}], " ", ",", " ", 
+        RowBox[{"End", "-", 
+         RowBox[{"1", "/", 
+          RowBox[{"(", 
+           RowBox[{"2", "n"}], ")"}]}]}], ",", " ", 
+        RowBox[{"1", "/", "n"}]}], "}"}]}], "]"}], 
+    ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SimpsonsApproximation", "[", 
+   RowBox[{"f_", ",", " ", "Start_", ",", " ", "End_", ",", " ", "n_"}], 
+   "]"}], " ", ":=", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"End", " ", "-", " ", "Start"}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"3", "n"}], ")"}]}], ")"}], "*", "\[IndentingNewLine]", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"f", "[", "Start", "]"}], "+", 
+     RowBox[{"f", "[", "End", "]"}], " ", "+", "\[IndentingNewLine]", 
+     RowBox[{"4", "*", 
+      RowBox[{"Sum", "[", 
+       RowBox[{
+        RowBox[{"f", "[", "i", "]"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", " ", 
+          RowBox[{"Start", "+", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"End", "-", "Start"}], ")"}], "/", "n"}]}], ",", " ", 
+          RowBox[{"End", " ", "-", " ", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"End", "-", "Start"}], ")"}], "/", "n"}]}], ",", " ", 
+          RowBox[{"2", "*", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"End", "-", "Start"}], ")"}], "/", "n"}]}]}], "}"}]}], 
+       "]"}]}], "+", "\[IndentingNewLine]", 
+     RowBox[{"2", "*", 
+      RowBox[{"Sum", "[", 
+       RowBox[{
+        RowBox[{"f", "[", "i", "]"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", " ", 
+          RowBox[{"Start", " ", "+", " ", 
+           RowBox[{"2", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"End", "-", "Start"}], ")"}], "/", "n"}]}]}], ",", " ", 
+          RowBox[{"End", " ", "-", " ", 
+           RowBox[{"2", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"End", "-", "Start"}], ")"}], "/", "n"}]}]}], ",", " ", 
+          RowBox[{"2", "*", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"End", "-", "Start"}], ")"}], "/", "n"}]}]}], "}"}]}], 
+       "]"}]}]}], ")"}]}]}]}], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGCQBGIQHfR5foLZ1jeOCTxvC0D0/ssWNSDa/lJpF4h+18Ey
+C0Sz24aC6b7KA1tBdGf+jb0guixC5RCIDtrHdg5E36kwvwKiH4jsBtM9ma9e
+geiiRe/AtKxI9EcQ/etiDZi2MGr6B6KPsbP+B9FCb+4ymwPpuZ22rCA6ZxEn
+J4gusFbUBdEfavSMQPSNizNMQfSyX4sszcH2H7ID0bOyQlxBdEBiFJie2/7I
+C0QLygoHgOhtMlujQLTc/BlxILrlaWAmiN7vuDcbRHOU3S4C0X3eMsUg2mTv
+ugoQzX5+QTWIrj/FPg1ERxwXAtOLK1j+LNz2xtFr02rxRUD6VORjFRCdFzBH
+G0SnH9ngB6KP7ToeDKKz3KZGguhHjo8yQLTsP616EH19y0IwDQAG9tGm
+  "],
+ CellLabel->"In[67]:=",ExpressionUUID->"45db38e1-d335-4eb9-9c92-37cc2ff23e49"]
+},
+WindowSize->{573., 565.5},
+WindowMargins->{{Automatic, 159.375}, {Automatic, 20.25}},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (June 19, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"9b6fe14b-08af-4ec7-be95-6d0e856a0e0f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4299, 118, 309, "Input",ExpressionUUID->"45db38e1-d335-4eb9-9c92-37cc2ff23e49"]
+}
+]
+*)
+
